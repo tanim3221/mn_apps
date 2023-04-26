@@ -9,3 +9,25 @@ Stack trace:
 #0 C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\qhb_sms\sms.php(21): SmsReceiver->__construct()
 #1 {main}
   thrown in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 37
+[26-Apr-2023 08:33:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 29
+[26-Apr-2023 08:33:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 30
+[26-Apr-2023 08:33:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 31
+[26-Apr-2023 08:33:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 32
+[26-Apr-2023 08:33:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 33
+[26-Apr-2023 08:33:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 34
+[26-Apr-2023 08:33:23 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Some of the required parameters are not provided in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php:37
+Stack trace:
+#0 C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\qhb_sms\sms.php(21): SmsReceiver->__construct()
+#1 {main}
+  thrown in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 37
+[26-Apr-2023 08:45:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 29
+[26-Apr-2023 08:45:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 30
+[26-Apr-2023 08:45:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 31
+[26-Apr-2023 08:45:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 32
+[26-Apr-2023 08:45:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 33
+[26-Apr-2023 08:45:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 34
+[26-Apr-2023 08:45:47 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Some of the required parameters are not provided in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php:37
+Stack trace:
+#0 C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\qhb_sms\sms.php(21): SmsReceiver->__construct()
+#1 {main}
+  thrown in C:\Users\asaklayen\Documents\App\Server\xampp\htdocs\mn_apps\apps\lib\sms\SmsReceiver.php on line 37

@@ -40,7 +40,7 @@ try {
 
     //sending a one message
 
- 	$applicationId = "21213_QHB";
+ 	$applicationId = "APP_084556";
  	$encoding = "0";
  	$version =  "1.0";
     $password = "";
