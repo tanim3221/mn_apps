@@ -11,8 +11,9 @@
  *   property rights in these materials.
  */
 
-include_once '../../lib/sms/SmsDeliveryReport.php';
-include_once '../log.php';
+require_once __DIR__.'../lib/sms/SmsDeliveryReport.php';
+require_once __DIR__.'../log.php';
+
 ini_set('error_log', 'sms-delivery-report-error.log');
 
 try {
