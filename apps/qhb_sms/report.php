@@ -24,7 +24,7 @@ try {
     $requestId = $receiver->getRequestId();
     $deliveryStatus = $receiver->getDeliveryStatus();
 
-    logFile("Sms delivery report received from TAP : ");
+    logFile("SMS delivery report received from TAP : ");
     logFile("[ destinationAddress=$destinationAddress, timeStamp=$timeStamp, requestId=$requestId, deliveryStatus=$deliveryStatus ]");
 
 } catch (SmsException $ex) {
