@@ -40,11 +40,11 @@ try {
 
     //sending a one message
 
- 	$applicationId = "APP_084556";
- 	$encoding = "0";
- 	$version =  "1.0";
+ 	$applicationId = $applicationId;
+ 	$encoding = $encoding;
+ 	$version =  $version;
     $password = "";
-    $sourceAddress = $address;
+    $sourceAddress = "qhb";
     $deliveryStatusRequest = "1";
     $charging_amount = "2.00";
     $destinationAddresses = array($address);
