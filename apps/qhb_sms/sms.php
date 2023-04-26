@@ -33,22 +33,23 @@ try {
 
     //your logic goes here......
     $split = explode(' ', $content);
-    $responseMsg = bmiLogicHere($split);
+    // $responseMsg = bmiLogicHere($split);
 
     // Create the sender object server url
-    $sender = new SmsSender("http://localhost:7000/sms/send");
+    $sender = new SmsSender("https://developer.bdapps.com/sms/send");
 
     //sending a one message
 
- 	$applicationId = "APP_000001";
+ 	$applicationId = "21213_QHB";
  	$encoding = "0";
  	$version =  "1.0";
-    $password = "password";
-    $sourceAddress = "77000";
+    $password = "";
+    $sourceAddress = $address;
     $deliveryStatusRequest = "1";
-    $charging_amount = ":15.75";
-    $destinationAddresses = array("tel:8801866742387");
+    $charging_amount = "2.00";
+    $destinationAddresses = array($address);
     $binary_header = "";
+    $responseMsg = "Hello, Your query is ".$content;
     $res = $sender->sms($responseMsg, $destinationAddresses, $password, $applicationId, $sourceAddress, $deliveryStatusRequest, $charging_amount, $encoding, $version, $binary_header);
 
 } catch (SmsException $ex) {
@@ -56,49 +57,49 @@ try {
     error_log("ERROR: {$ex->getStatusCode()} | {$ex->getStatusMessage()}");
 }
 
-/*
-    BMI logic function
-**/
-function bmiLogicHere($split)
-{
-    if (sizeof($split) < 2) {
-        $responseMsg = "Invalid message content";
-    } else {
-        $weight = (float)$split[0];
-        $height = (float)$split[1];
+// /*
+//     BMI logic function
+// **/
+// function bmiLogicHere($split)
+// {
+//     if (sizeof($split) < 2) {
+//         $responseMsg = "Invalid message content";
+//     } else {
+//         $weight = (float)$split[0];
+//         $height = (float)$split[1];
 
-        $bmi = getBMIValue($weight, ($height / 100));
-        $category = getCategory($bmi);
+//         $bmi = getBMIValue($weight, ($height / 100));
+//         $category = getCategory($bmi);
 
-        $responseMsg = "Your BMI :" . round($bmi, 2) . ", Category :" . $category;
-    }
-    return $responseMsg;
-}
+//         $responseMsg = "Your BMI :" . round($bmi, 2) . ", Category :" . $category;
+//     }
+//     return $responseMsg;
+// }
 
-/*
-    Get BMI value
-**/
+// /*
+//     Get BMI value
+// **/
 
-function getBMIValue($weight, $height)
-{
-    return ($weight / pow($height, 2));
-}
+// function getBMIValue($weight, $height)
+// {
+//     return ($weight / pow($height, 2));
+// }
 
-/*
-    Get category according to BMI value
-**/
+// /*
+//     Get category according to BMI value
+// **/
 
-function getCategory($bmiValue)
-{
-    if ($bmiValue < 18.5) {
-        return "Underweight";
-    } else if ($bmiValue >= 18.5 && $bmiValue < 24.9) {
-        return "Normal Weight";
-    } else if ($bmiValue >= 25 && $bmiValue < 29.9) {
-        return "Overweight";
-    } else {
-        return "Obesity";
-    }
-}
+// function getCategory($bmiValue)
+// {
+//     if ($bmiValue < 18.5) {
+//         return "Underweight";
+//     } else if ($bmiValue >= 18.5 && $bmiValue < 24.9) {
+//         return "Normal Weight";
+//     } else if ($bmiValue >= 25 && $bmiValue < 29.9) {
+//         return "Overweight";
+//     } else {
+//         return "Obesity";
+//     }
+// }
 
 ?>
