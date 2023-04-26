@@ -11,9 +11,9 @@
  *   property rights in these materials.
  */
 
-require_once __DIR__.'../../../lib/sms/SmsReceiver.php';
-require_once __DIR__.'../../../lib/sms/SmsSender.php';
-require_once __DIR__.'/../log.php';
+require_once __DIR__.'../lib/sms/SmsReceiver.php';
+require_once __DIR__.'../lib/sms/SmsSender.php';
+require_once __DIR__.'../log.php';
 
 ini_set('error_log', 'sms-app-error.log');
 
