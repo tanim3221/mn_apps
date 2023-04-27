@@ -43,9 +43,9 @@ try {
 
     // Database connection
     $host = 'localhost';
-    $db   = 'my';
-    $user = 'root';
-    $pass = '';
+    $db   = 'aisfamil_bdapps';
+    $user = 'aisfamil_myweb';
+    $pass = 'KMrNqqLyobCd';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
