@@ -38,12 +38,58 @@ try {
     // Create the sender object server url
     $sender = new SmsSender("https://developer.bdapps.com/sms/send");
 
+
+    // store to sql
+
+    // Database connection
+    $host = 'localhost';
+    $db   = 'my';
+    $user = 'root';
+    $pass = '';
+    $charset = 'utf8mb4';
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $options = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+    try {
+        $pdo = new PDO($dsn, $user, $pass, $options);
+    } catch (\PDOException $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
+
+    // Create table
+    $sql = "CREATE TABLE IF NOT EXISTS messages_o (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        content TEXT NOT NULL,
+        address VARCHAR(255) NOT NULL,
+        request_id VARCHAR(255) NOT NULL,
+        application_id VARCHAR(255) NOT NULL,
+        encoding VARCHAR(255) NOT NULL,
+        version VARCHAR(255) NOT NULL
+    )";
+    $pdo->exec($sql);
+
+    // Insert data
+    $stmt = $pdo->prepare("INSERT INTO messages_o (content, address, request_id, application_id, encoding, version) VALUES (:content, :address, :request_id, :application_id, :encoding, :version)");
+    $stmt->execute([
+        'content' => $content,
+        'address' => $address,
+        'request_id' => $requestId,
+        'application_id' => $applicationId,
+        'encoding' => $encoding,
+        'version' => $version
+    ]);
+
+
     //sending a one message
 
  	$applicationId = $applicationId;
  	$encoding = $encoding;
  	$version =  $version;
-    $password = "";
+    $password = "489d1be80da8f848d09b56556e26e5a8";
     $sourceAddress = "qhb";
     $deliveryStatusRequest = "1";
     $charging_amount = "2.00";
@@ -51,6 +97,37 @@ try {
     $binary_header = "";
     $responseMsg = "Hello, Your query is ".$content;
     $res = $sender->sms($responseMsg, $destinationAddresses, $password, $applicationId, $sourceAddress, $deliveryStatusRequest, $charging_amount, $encoding, $version, $binary_header);
+
+    // Create table
+    $sql = "CREATE TABLE IF NOT EXISTS messages_t (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        application_id VARCHAR(255) NOT NULL,
+        encoding VARCHAR(255) NOT NULL,
+        version VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        source_address VARCHAR(255) NOT NULL,
+        delivery_status_request VARCHAR(255) NOT NULL,
+        charging_amount VARCHAR(255) NOT NULL,
+        destination_addresses TEXT NOT NULL,
+        binary_header TEXT NOT NULL,
+        response_msg TEXT NOT NULL
+    )";
+    $pdo->exec($sql);
+
+    // Insert data
+    $stmt = $pdo->prepare("INSERT INTO messages_t (application_id, encoding, version, password, source_address, delivery_status_request, charging_amount, destination_addresses, binary_header, response_msg) VALUES (:application_id, :encoding, :version, :password, :source_address, :delivery_status_request, :charging_amount, :destination_addresses, :binary_header, :response_msg)");
+    $stmt->execute([
+        'application_id' => $applicationId,
+        'encoding' => $encoding,
+        'version' => $version,
+        'password' => $password,
+        'source_address' => $sourceAddress,
+        'delivery_status_request' => $deliveryStatusRequest,
+        'charging_amount' => $charging_amount,
+        'destination_addresses' => json_encode($destinationAddresses),
+        'binary_header' => $binary_header,
+        'response_msg' => $responseMsg
+    ]);
 
 } catch (SmsException $ex) {
     //throws when failed sending or receiving the sms
