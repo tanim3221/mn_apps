@@ -41,6 +41,8 @@ try {
 
     // store to sql
 
+    /*
+
     // Database connection
     $host = 'localhost';
     $db   = 'aisfamil_bdapps';
@@ -83,6 +85,7 @@ try {
         'version' => $version
     ]);
 
+    */
 
     //sending a one message
 
@@ -97,6 +100,8 @@ try {
     $binary_header = "";
     $responseMsg = "Hello, Your query is ".$content;
     $res = $sender->sms($responseMsg, $destinationAddresses, $password, $applicationId, $sourceAddress, $deliveryStatusRequest, $charging_amount, $encoding, $version, $binary_header);
+
+    /*
 
     // Create table
     $sql = "CREATE TABLE IF NOT EXISTS messages_t (
@@ -128,6 +133,8 @@ try {
         'binary_header' => $binary_header,
         'response_msg' => $responseMsg
     ]);
+
+    */
 
 } catch (SmsException $ex) {
     //throws when failed sending or receiving the sms
